@@ -1,19 +1,20 @@
-// const express = require('express');
-// const cors = require('cors');
-
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import unitRoutes from './routes/units';
 
 const app = express();
 const PORT: number = 3001;
 
-// Middleware (like Rails before_action)
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Your first route with proper types
-app.get('/api/units', (req: Request, res: Response) => {
-  res.json({ message: 'Hello from your condo API!' });
+// Routes
+app.use('/api/units', unitRoutes);
+
+// Health check endpoint (good practice for production)
+app.get('/health', (req: Request, res: Response) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
 app.listen(PORT, () => {
