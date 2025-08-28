@@ -4,7 +4,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="home-page">
       <section className="hero">
-        <h1>727 West Madison</h1>
+        <h1>740 West Fulton</h1>
         <h2>Luxury Living in the Heart of Chicago</h2>
         <p>Experience sophisticated urban living in our premium residences</p>
         
