@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Unit } from '../types/Unit';
 import { unitsAPI } from '../services/api';
 
-const UnitsPage: React.FC = () => {
+const UnitsPage = () => {
   const [units, setUnits] = useState<Unit[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
