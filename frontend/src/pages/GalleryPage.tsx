@@ -1,6 +1,7 @@
+import { GalleryImage } from '../types/Gallery';
+
 const GalleryPage = () => {
-  // Mock gallery data - in production, this would come from your API
-  const galleryImages = [
+  const galleryImages: GalleryImage[] = [
     {
       id: 1,
       category: 'exterior',
@@ -20,12 +21,28 @@ const GalleryPage = () => {
       description: 'State-of-the-art equipment with city views'
     },
     {
-      id: 4,
-      category: 'amenities',
-      title: 'Rooftop Deck',
-      description: 'Stunning skyline views and outdoor seating'
-    },
+      id: 6,
+      category: 'units',
+      title: 'Spacious Living',
+      description: 'Open floor plans with floor-to-ceiling windows'
+    }
   ];
+
+  // Helper function with proper typing
+  const getCategoryGradient = (category: GalleryImage['category']): string => {
+    switch (category) {
+      case 'exterior':
+        return '#ff6b6b, #ee5a52';
+      case 'lobby':
+        return '#4ecdc4, #44a08d';
+      case 'amenities':
+        return '#45b7d1, #96c93d';
+      case 'units':
+        return '#f093fb, #f5576c';
+      default:
+        return '#667eea, #764ba2';
+    }
+  };
 
   return (
     <div className="gallery-page">
@@ -39,21 +56,16 @@ const GalleryPage = () => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
         gap: '25px'
       }}>
-        {galleryImages.map(image => (
+        {galleryImages.map((image: GalleryImage) => (
           <div key={image.id} className="gallery-item" style={{
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
             transition: 'transform 0.3s ease'
           }}>
-            {/* Placeholder for actual images */}
             <div style={{
               height: '250px',
-              background: `linear-gradient(135deg, 
-                ${image.category === 'exterior' ? '#ff6b6b, #ee5a52' :
-                  image.category === 'lobby' ? '#4ecdc4, #44a08d' :
-                  image.category === 'amenities' ? '#45b7d1, #96c93d' :
-                  '#f093fb, #f5576c'})`,
+              background: `linear-gradient(135deg, ${getCategoryGradient(image.category)})`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
