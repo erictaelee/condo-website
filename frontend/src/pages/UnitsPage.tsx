@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Unit } from '../types/Unit';
 import { unitsAPI } from '../services/api';
 
@@ -41,6 +41,26 @@ const UnitsPage = () => {
                 {unit.available ? 'Available' : 'Not Available'}
               </span>
             </div>
+
+            {unit.floorPlanImage && (
+              <div className="floor-plan-container">
+                <img 
+                  src={unit.floorPlanImage} 
+                  alt={`${unit.floorPlan} floor plan`}
+                  className="floor-plan-image"
+                  style={{
+                    width: '100%',
+                    height: '300px',
+                    objectFit: 'contain',
+                    backgroundColor: '#f8f9fa',
+                    border: '1px solid #e9ecef',
+                    borderRadius: '8px',
+                    padding: '10px',
+                    marginBottom: '15px'
+                  }}
+                />
+              </div>
+            )}
             
             <p><strong>Floor Plan:</strong> {unit.floorPlan.replace('bed', ' Bedroom').replace('studio', 'Studio')}</p>
             <p><strong>Square Footage:</strong> {unit.squareFootage.toLocaleString()} sq ft</p>

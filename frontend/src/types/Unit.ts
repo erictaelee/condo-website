@@ -7,6 +7,7 @@ export interface Unit {
     floor: number;
     available: boolean;
     availableData?: string;
+    floorPlanImage?: string;
  }
 
 export interface APIResponse<T> {

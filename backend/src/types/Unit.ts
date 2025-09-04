@@ -7,4 +7,5 @@ export interface Unit {
     floor: number;
     available: boolean;
     availableDate?: string;
+    floorPlanImage?: string;
 }
