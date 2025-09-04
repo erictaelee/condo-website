@@ -7,19 +7,17 @@ const HomePage = () => {
         <p>Experience sophisticated urban living in our premium residences</p>
         
         {/* Placeholder for hero image */}
-        <div style={{
-          height: '400px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          borderRadius: '12px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          fontSize: '1.5rem',
-          margin: '20px 0'
-        }}>
-          [Building Hero Image Here]
-        </div>
+        <img
+          src="/images/homepage-photo.jpg"
+          alt="740 West Fulton Building"
+          style={{
+            width: '100%',
+            height: '600px',
+            objectFit: 'cover',
+            borderRadius: '12px',
+            margin: '20px 0'
+          }}
+        />
       </section>
 
       <section className="highlights">

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import './ContactPage.css'
 import { ContactForm } from '../types/Contact';
 
 const ContactPage = () => {
